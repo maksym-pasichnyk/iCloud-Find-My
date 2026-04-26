@@ -1,0 +1,42 @@
+play_sound:
+  name: Play sound
+  description: Play a sound on a Find My device.
+  fields:
+    device_id:
+      name: Device
+      description: The Find My device id (or device name) to ring.
+      required: true
+      example: "iPhone 15 Pro"
+      selector:
+        text:
+
+lost_mode:
+  name: Enable Lost Mode
+  description: Mark a device as lost. Locks the device and shows a custom message + callback number.
+  fields:
+    device_id:
+      name: Device
+      description: The Find My device id (or device name) to mark as lost.
+      required: true
+      example: "iPhone 15 Pro"
+      selector:
+        text:
+    message:
+      name: Message
+      description: Message displayed on the lock screen.
+      required: false
+      example: "If found, please call the number below."
+      selector:
+        text:
+          multiline: true
+    phone_number:
+      name: Callback number
+      description: Phone number shown to whoever finds the device.
+      required: false
+      example: "+1 555 123 4567"
+      selector:
+        text:
+
+refresh:
+  name: Refresh
+  description: Force an immediate refresh of all Find My devices.

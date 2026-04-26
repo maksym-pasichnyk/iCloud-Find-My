@@ -1,0 +1,68 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "iCloud Find My",
+        "description": "Sign in with your Apple ID. The Anisette server URL is used to provide the device-attestation headers Apple requires for unofficial clients. The default works for most users; you can self-host an anisette-v3 server for more control.",
+        "data": {
+          "username": "Apple ID (email)",
+          "password": "Password",
+          "anisette_url": "Anisette server URL"
+        }
+      },
+      "twofa": {
+        "title": "Two-factor authentication",
+        "description": "Enter the 6-digit code Apple just sent to your trusted devices.",
+        "data": {
+          "code": "Verification code"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid Apple ID or password.",
+      "invalid_2fa": "That verification code didn't work — try again.",
+      "cannot_connect": "Couldn't reach Apple. Check your network and the anisette server URL.",
+      "unknown": "Something unexpected happened. Check the Home Assistant logs."
+    },
+    "abort": {
+      "already_configured": "This Apple ID is already set up.",
+      "reauth_successful": "Re-authentication was successful."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Options",
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "services": {
+    "play_sound": {
+      "name": "Play sound",
+      "description": "Play a sound on a Find My device."
+    },
+    "lost_mode": {
+      "name": "Enable Lost Mode",
+      "description": "Mark a device as lost."
+    },
+    "refresh": {
+      "name": "Refresh",
+      "description": "Force an immediate refresh."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "battery_level": { "name": "Battery" },
+      "last_seen": { "name": "Last seen" },
+      "battery_status": { "name": "Battery status" }
+    },
+    "binary_sensor": {
+      "online": { "name": "Online" },
+      "low_power_mode": { "name": "Low power mode" },
+      "locating": { "name": "Locating" }
+    }
+  }
+}
